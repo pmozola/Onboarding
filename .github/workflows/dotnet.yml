@@ -1,0 +1,41 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      working-directory: ./src/Api/Onboarding
+      run: dotnet restore Onboarding.sln
+    - name: Build
+      working-directory: ./src/Api/Onboarding
+      run: dotnet build Onboarding.sln --no-restore
+    - name: Test
+      working-directory: ./src/Api/Onboarding
+      run: dotnet test Onboarding.sln --no-build --verbosity normal
+    - name: Code Analysis
+      uses: highbyte/sonarscan-dotnet@v2.1.2
+      with:
+        # The key of the SonarQube project
+        sonarProjectKey: pmozola_Onboarding
+        # The name of the SonarQube project
+        sonarProjectName: Onboarding
+        sonarOrganization: pmozola-github
+        dotnetBuildArguments: ./src/Api/Onboarding/Onboarding.sln
+        dotnetTestArguments: ./src/Api/Onboarding/Onboarding.sln
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
