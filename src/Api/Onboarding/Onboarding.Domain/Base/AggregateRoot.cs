@@ -1,7 +1,6 @@
 ﻿namespace Onboarding.Domain.Base
 {
-    public class AggregateRoot
+    public interface IAggregateRoot
     {
-        public int Id { get; }
     }
 }
