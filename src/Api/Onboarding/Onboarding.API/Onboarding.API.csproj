@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Onboarding.Application\Onboarding.Application.csproj" />
+    <ProjectReference Include="..\Onboarding.Persistence\Onboarding.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

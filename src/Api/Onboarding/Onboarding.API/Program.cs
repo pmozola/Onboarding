@@ -1,5 +1,6 @@
 using Onboarding.API.Middlewares;
 using Onboarding.Application.Bootstrap;
+using Onboarding.Persistence.Bootstrap;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddOnboardingApplication();
+builder.Services.AddOnboardingPersistance();
 
 var app = builder.Build();
 

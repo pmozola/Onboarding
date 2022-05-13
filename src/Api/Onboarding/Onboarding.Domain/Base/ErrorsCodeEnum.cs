@@ -4,5 +4,6 @@
     {
         ProcessTemplateNameToLong = 1,
         NotFound = 2,
+        StepNameMustBeUniqueInTemplate = 3,
     }
 }

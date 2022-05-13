@@ -22,7 +22,7 @@ namespace Onboarding.API.Controllers
         {
             var result = await mediator.Send(new CreateStepCommand(templateId, name, description, approvingUserRole));
 
-            return CreatedAtAction(nameof(TemplateController.Get), new { id = templateId }, result);
+            return Ok(result);
         }
 
         [HttpDelete()]
