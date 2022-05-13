@@ -3,7 +3,7 @@ using Onboarding.Domain.Base;
 
 namespace Onboarding.Persistence.Repositories
 {
-    public class EntityFrameworkGenericRepository<T> : IGetGenericRepository<T>, ICreateGenericRepository<T>, IUpdateGenericRepository<T>, IDeleteGenericRepository<T>
+    public class EntityFrameworkGenericRepository<T> : ICreateGenericRepository<T>, IUpdateGenericRepository<T>, IDeleteGenericRepository<T>
         where T : Entity, IAggregateRoot
     {
         private readonly OnboardingDBContext dbContext;
