@@ -1,6 +1,6 @@
 ﻿namespace Onboarding.Domain.Base
 {
-    public enum ErrorsCodeEnum
+    public enum OnboardingDomainErrorsCodes
     {
         ProcessTemplateNameToLong = 1,
         NotFound = 2,

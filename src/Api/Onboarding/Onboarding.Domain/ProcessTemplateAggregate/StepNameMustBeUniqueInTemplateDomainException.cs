@@ -6,7 +6,7 @@ namespace Onboarding.Domain.ProcessTemplateAggregate
     {
         public StepNameMustBeUniqueInTemplateDomainException() 
             : base($"Step name must be unique in template.",
-                  ErrorsCodeEnum.StepNameMustBeUniqueInTemplate)
+                  OnboardingDomainErrorsCodes.StepNameMustBeUniqueInTemplate)
         {
         }
     }

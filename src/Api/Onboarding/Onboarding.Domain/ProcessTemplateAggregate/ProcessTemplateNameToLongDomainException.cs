@@ -6,7 +6,7 @@ namespace Onboarding.Domain.ProcessTemplateAggregate
     {
         public ProcessTemplateNameToLongDomainException(int usedCharCount, int limitOfChar) 
             : base($"Template name can be maximum {limitOfChar} number of char, but was {usedCharCount}.",
-                  ErrorsCodeEnum.ProcessTemplateNameToLong)
+                  OnboardingDomainErrorsCodes.ProcessTemplateNameToLong)
         {
         }
     }
