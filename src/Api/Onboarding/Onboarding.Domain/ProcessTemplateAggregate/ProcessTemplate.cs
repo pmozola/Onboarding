@@ -6,7 +6,7 @@ namespace Onboarding.Domain.ProcessTemplateAggregate
     {
         public const int NameFieldLimit = 15;
         public string Name { get; init; } = string.Empty;
-        public List<Step> Steps = new();
+        public List<StepTemplate> Steps = new();
 
         public static ProcessTemplate Create(string name)
         {
@@ -26,7 +26,7 @@ namespace Onboarding.Domain.ProcessTemplateAggregate
 
             var orderNumber = Steps.Select(x => x.Order).LastOrDefault();
 
-            Steps.Add(Step.Create(name, description, approvingUserRole, orderNumber));
+            Steps.Add(StepTemplate.Create(name, description, approvingUserRole, orderNumber));
         }
 
         public void RemoveLastStep()

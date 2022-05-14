@@ -2,7 +2,7 @@
 
 namespace Onboarding.Domain.ProcessTemplateAggregate
 {
-    public class Step : Entity
+    public class StepTemplate : Entity
     {
         public const int StepFieldLimit = 15;
         public string Name { get; init; } = string.Empty;
@@ -10,16 +10,16 @@ namespace Onboarding.Domain.ProcessTemplateAggregate
         public int ApprovingUserRoleId { get; init; }
         public int Order { get; init; }
 
-        private Step() { }
+        private StepTemplate() { }
 
-        public static Step Create(string name, string description, int approvingUserRole, int order)
+        public static StepTemplate Create(string name, string description, int approvingUserRole, int order)
         {
             if (StepFieldLimit < name.Length)
             {
                 throw new StepNameToLongDomainException(name.Length, StepFieldLimit);
             }
 
-            return new Step { Name = name, Description = description, ApprovingUserRoleId = approvingUserRole, Order = order };
+            return new StepTemplate { Name = name, Description = description, ApprovingUserRoleId = approvingUserRole, Order = order };
         }
     }
 }

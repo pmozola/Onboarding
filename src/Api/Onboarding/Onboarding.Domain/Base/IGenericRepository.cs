@@ -1,8 +1,8 @@
 ﻿namespace Onboarding.Domain.Base
 {
-    public interface ICreateGenericRepository<T> where T : Entity, IAggregateRoot
+    public interface IAddGenericRepository<T> where T : Entity, IAggregateRoot
     {
-        public Task<int> Create(T entity, CancellationToken cancellationToken);
+        public Task<int> Add(T entity, CancellationToken cancellationToken);
     }
 
     public interface IDeleteGenericRepository<T> : IGetGenericRepository<T> where T : Entity, IAggregateRoot

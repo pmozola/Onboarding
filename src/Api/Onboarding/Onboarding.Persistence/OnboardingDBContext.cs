@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Onboarding.Domain.ProcessTemplateAggregate;
+using Onboarding.Domain.UserOnboardingProcessAggregate;
 
 namespace Onboarding.Persistence
 {
@@ -10,7 +11,9 @@ namespace Onboarding.Persistence
         }
 
         public DbSet<ProcessTemplate> ProcessTemplate { get; set; } = default!;
-        public DbSet<Step> Step { get; set; } = default!;
+        public DbSet<StepTemplate> StepTemplate { get; set; } = default!;
+        public DbSet<UserOnboardingProcess> UserOnboardingProcesses { get; set; } = default!;
+        public DbSet<UserOnboardStep> UserOnboardSteps { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
