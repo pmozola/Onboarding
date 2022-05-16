@@ -10,6 +10,7 @@ namespace Onboarding.Persistence.Configuration
         {
             builder.HasKey(x => x.Id);
             builder.HasMany(x => x.UserOnboardSteps);
+            builder.Navigation(x => x.UserOnboardSteps).AutoInclude();
         }
     }
 }

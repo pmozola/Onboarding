@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Onboarding.Domain.Base;
 using Onboarding.Domain.UserAggregate;
 using Onboarding.Persistence.Repositories;
+using Onboarding.Persistence.TestData;
 
 namespace Onboarding.Persistence.Bootstrap
 {
@@ -18,6 +19,8 @@ namespace Onboarding.Persistence.Bootstrap
             services.AddScoped(typeof(IUpdateGenericRepository<>), typeof(EntityFrameworkGenericRepository<>));
 
             services.AddScoped<IUserInformationRepository, FakeUserInformationRepository>();
+
+            services.AddScoped<TestDataSeederService>();
 
             return services;
         }

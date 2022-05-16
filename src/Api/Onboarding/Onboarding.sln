@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onboarding.Application", "O
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onboarding.Domain", "Onboarding.Domain\Onboarding.Domain.csproj", "{17C9E483-A46E-45F2-BE23-3F2F00FF5AA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onboarding.Persistence", "Onboarding.Persistence\Onboarding.Persistence.csproj", "{C542BE0E-370E-473E-8365-80DDBA9A50DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onboarding.Persistence", "Onboarding.Persistence\Onboarding.Persistence.csproj", "{C542BE0E-370E-473E-8365-80DDBA9A50DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

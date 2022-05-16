@@ -4,7 +4,7 @@ namespace Onboarding.Domain.ProcessTemplateAggregate
 {
     public class ProcessTemplate : Entity, IAggregateRoot
     {
-        public const int NameFieldLimit = 15;
+        public const int NameFieldLimit = 255;
         public string Name { get; init; } = string.Empty;
         public List<StepTemplate> Steps = new();
 
@@ -24,7 +24,7 @@ namespace Onboarding.Domain.ProcessTemplateAggregate
         {
             if (Steps.Any(x => x.Name == name)) throw new StepNameMustBeUniqueInTemplateDomainException();
 
-            var orderNumber = Steps.Select(x => x.Order).LastOrDefault();
+            var orderNumber = Steps.Select(x => x.Order).LastOrDefault() + 1;
 
             Steps.Add(StepTemplate.Create(name, description, approvingUserRole, orderNumber));
         }

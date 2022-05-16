@@ -1,6 +1,7 @@
 using Onboarding.API.Middlewares;
 using Onboarding.Application.Bootstrap;
 using Onboarding.Persistence.Bootstrap;
+using Onboarding.Persistence.TestData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.Services.SeedTestData();
 }
 
 app.UseHttpsRedirection();
