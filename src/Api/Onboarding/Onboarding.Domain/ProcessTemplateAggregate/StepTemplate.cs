@@ -9,8 +9,6 @@ namespace Onboarding.Domain.ProcessTemplateAggregate
         public string Description { get; init; } = string.Empty;
         public int ApprovingUserRoleId { get; init; }
         public int Order { get; init; }
-        public int ProcessTemplateId { get; init; }
-        
         private StepTemplate() { }
 
         public static StepTemplate Create(string name, string description, int approvingUserRole, int order)

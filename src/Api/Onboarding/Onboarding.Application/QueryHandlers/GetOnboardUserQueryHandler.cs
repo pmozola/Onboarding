@@ -42,7 +42,7 @@ namespace Onboarding.Application.QueryHandlers
                     Description: step.Description,
                     Order: step.Order,
                     Status: onboardStep.Status,
-                    ApprovedBy: approvedUsers.First(x => x.Id == onboardStep.ApprovedByUserId).FullName,
+                    ApprovedBy: onboardStep.ApprovedByUserId != 0 ? approvedUsers.First(x => x.Id == onboardStep.ApprovedByUserId).FullName : string.Empty,
                     ModifyOn: onboardStep.ModifyOn,
                     Comment: onboardStep.Comment);
             });
