@@ -33,8 +33,8 @@ namespace Onboarding.Domain.UserOnboardingProcessAggregate
 
         public void Approve(int userId, string comment, IUserRoleChecker userRoleChecker, IPreviousStepChecker previousStepChecker)
         {
-            if (userRoleChecker.IsInRole(1)) throw new Exception();
-            if (Status == StepStatus.Approved) throw new Exception("allready approved");
+            if (userRoleChecker.IsInRole(1)) throw new UserIsNotInRoleException(userId);
+            if (Status == StepStatus.Approved) throw new StepIsAlreadyApprovedException(userId);
             ApprovedByUserId = userId;
             Comment = comment;
             ModifyOn = DateTimeOffset.Now;
@@ -43,8 +43,8 @@ namespace Onboarding.Domain.UserOnboardingProcessAggregate
 
         public void Reject(int userId, string comment, IUserRoleChecker userRoleChecker, IPreviousStepChecker previousStepChecker)
         {
-            if (userRoleChecker.IsInRole(1)) throw new Exception();
-            if (Status == StepStatus.Approved) throw new Exception("allready approved");
+            if (userRoleChecker.IsInRole(1)) throw new UserIsNotInRoleException(userId);
+            if (Status == StepStatus.Approved) throw new StepIsAlreadyApprovedException(userId);
             ApprovedByUserId = userId;
             Comment = comment;
             ModifyOn = DateTimeOffset.Now;
