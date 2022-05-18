@@ -11,6 +11,8 @@ namespace Onboarding.Persistence.Configuration
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name).IsRequired().HasMaxLength(ProcessTemplate.NameFieldLimit);
             builder.HasMany(x => x.Steps);
+
+            builder.Navigation(x => x.Steps).AutoInclude();
         }
     }
 }

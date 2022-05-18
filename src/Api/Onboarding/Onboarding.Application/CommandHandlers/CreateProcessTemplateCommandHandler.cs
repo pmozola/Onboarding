@@ -6,9 +6,9 @@ namespace Onboarding.Application.CommandHandlers
 {
     public class CreateProcessTemplateCommandHandler : IRequestHandler<CreateProcessTemplateCommand, CreateProcessTemplateResponse>
     {
-        private readonly ICreateGenericRepository<ProcessTemplate> repository;
+        private readonly IAddGenericRepository<ProcessTemplate> repository;
 
-        public CreateProcessTemplateCommandHandler(ICreateGenericRepository<ProcessTemplate> repository)
+        public CreateProcessTemplateCommandHandler(IAddGenericRepository<ProcessTemplate> repository)
         {
             this.repository = repository;
         }
@@ -17,7 +17,7 @@ namespace Onboarding.Application.CommandHandlers
         {
             var entity = ProcessTemplate.Create(request.Name);
 
-            await repository.Create(entity, cancellationToken);
+            await repository.Add(entity, cancellationToken);
 
             return new CreateProcessTemplateResponse(entity.Id, entity.Name);
         }

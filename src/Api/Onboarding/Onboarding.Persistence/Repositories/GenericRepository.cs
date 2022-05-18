@@ -3,7 +3,7 @@ using Onboarding.Domain.Base;
 
 namespace Onboarding.Persistence.Repositories
 {
-    public class EntityFrameworkGenericRepository<T> : ICreateGenericRepository<T>, IUpdateGenericRepository<T>, IDeleteGenericRepository<T>
+    public class EntityFrameworkGenericRepository<T> : IAddGenericRepository<T>, IUpdateGenericRepository<T>, IDeleteGenericRepository<T>
         where T : Entity, IAggregateRoot
     {
         private readonly OnboardingDBContext dbContext;
@@ -15,7 +15,7 @@ namespace Onboarding.Persistence.Repositories
             this.dbSet = dbContext.Set<T>();
         }
 
-        public async Task<int> Create(T entity, CancellationToken cancellationToken)
+        public async Task<int> Add(T entity, CancellationToken cancellationToken)
         {
             dbSet.Add(entity);
             await dbContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
