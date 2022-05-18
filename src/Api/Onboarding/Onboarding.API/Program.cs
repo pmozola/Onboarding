@@ -32,5 +32,3 @@ app.UseMiddleware<DomainExceptionErrorHandlerMiddleware>();
 app.MapControllers();
 
 app.Run();
-
-public partial class Program { };
