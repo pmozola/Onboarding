@@ -13,8 +13,12 @@ namespace Onboarding.Persistence.TestData
 
         public void Seed()
         {
-            dBContext.ProcessTemplate.AddRangeAsync(OnboardTemplateTestData.Get());
+            var templates = OnboardTemplateTestData.Get();
+            dBContext.ProcessTemplate.AddRangeAsync(templates);
+            dBContext.SaveChanges();
 
+            var userOnboard = UserOnboardTemplateTestData.Create(new int[] { 1 }, templates.First());
+            dBContext.UserOnboardingProcesses.AddRangeAsync(userOnboard);
             dBContext.SaveChanges();
         }
     }

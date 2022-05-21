@@ -26,16 +26,14 @@ namespace Onboarding.IntegrationTests.Base
 
                 var serviceProvider = services.BuildServiceProvider();
 
-                using (var scope = serviceProvider.CreateScope())
-                {
-                    var scopedServices = scope.ServiceProvider;
-                    var db = scopedServices.GetRequiredService<OnboardingDBContext>();
+                using var scope = serviceProvider.CreateScope();
+                var scopedServices = scope.ServiceProvider;
+                var db = scopedServices.GetRequiredService<OnboardingDBContext>();
 
 
-                    db.Database.EnsureCreated();
+                db.Database.EnsureCreated();
 
-                    IntegrationTestDataSeeder.Seed(db);
-                }
+                IntegrationTestDataSeeder.Seed(db);
             });
         }
     }

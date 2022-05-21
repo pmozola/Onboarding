@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
     app.Services.SeedTestData();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 app.UseMiddleware<DomainExceptionErrorHandlerMiddleware>();
